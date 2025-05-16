@@ -53,7 +53,7 @@ All models are based on pre-trained CNN architectures from Keras (ImageNet weigh
 ## 👨‍💻 Contributors
 
 - Ahmet Enes Yensiz – [@Ahmetenesyensiz](https://github.com/Ahmetenesyensiz)  
-- Kemal Kerem Acar
+- Kemal Kerem Acar – [@Kemalkeremacar](https://github.com/Kemalkeremacar)
 
 ---
 
