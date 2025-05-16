@@ -77,6 +77,4 @@ pip install -r requirements.txt
 jupyter notebook rice_leaf_classifier.ipynb
 ```
 
-## 📄 License
 
-This project is for academic use under the MIT license.
