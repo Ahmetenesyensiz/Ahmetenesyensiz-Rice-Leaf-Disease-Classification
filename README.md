@@ -1,75 +1,82 @@
-# Pirinç Yaprağı Hastalıklarının Sınıflandırılması
 
-Bu proje, pirinç yaprak hastalıklarını dört farklı sınıfa (Bacterial Blight, Blast, Brown Spot, Tungro) ayıran bir derin öğrenme uygulamasıdır. Amaç, görsel veriler üzerinden yaprak hastalıklarını yüksek doğrulukla sınıflandırabilen bir sistem geliştirmektir.
+# 🍚 Rice Leaf Disease Classification with Deep Learning
 
-## Kullanılan CNN Modelleri
+This project aims to classify rice leaf diseases using four state-of-the-art pre-trained deep learning models: **Xception**, **VGG16**, **MobileNet**, and **ResNet50**. The goal is to help automate disease identification in agricultural settings by leveraging computer vision techniques.
 
-Proje kapsamında dört farklı önceden eğitilmiş model transfer öğrenme yöntemiyle yeniden eğitilmiştir:
+## 📁 Dataset
 
-- Xception
-- VGG16
-- MobileNet
-- ResNet50
+- **Source**: [Kaggle - Rice Leaf Disease Dataset](https://www.kaggle.com/datasets/nirmalsankalana/rice-leaf-disease-image)
+- **Classes**: Bacterial Blight, Blast, Brown Spot, Tungro
+- **Total Images**: 5,932
+- **Split**: 80% Training / 20% Testing
 
-Tüm modeller, ImageNet üzerinde önceden eğitilmiş ağırlıklarla başlatılmış, son katmanları yeniden yapılandırılmış ve pirinç hastalıkları veri kümesi ile eğitilmiştir.
+## 🧠 Models Used
 
-## Veri Kümesi
+All models are based on pre-trained CNN architectures from Keras (ImageNet weights) and fine-tuned for 4-class classification:
 
-Veri kümesi dört sınıfa ait görsellerden oluşmaktadır:
+- ✅ Xception
+- ✅ VGG16
+- ✅ MobileNet
+- ✅ ResNet50
 
-- Eğitim verileri: %80
-- Test verileri: %20
+## 🔧 Techniques Applied
 
-Her sınıf dengeli sayıda örnek içerecek şekilde dağıtılmıştır. Görseller uygun boyutlara yeniden ölçeklendirilmiş ve veri artırma (augmentation) uygulanmıştır.
+- **Transfer Learning**
+- **Image Augmentation** (rotation, zoom, flip, etc.)
+- **EarlyStopping and ModelCheckpoint**
+- **Categorical Crossentropy Loss with Adam Optimizer**
 
-## Değerlendirme Metrikleri
+## 📊 Results
 
-Modeller aşağıdaki metriklerle test verisi üzerinde değerlendirilmiştir:
+| Model     | Accuracy | Precision | Recall | F1 Score |
+|-----------|----------|-----------|--------|----------|
+| MobileNet | 0.99     | 0.99      | 0.99   | 0.99     |
+| Xception  | 0.98     | 0.98      | 0.98   | 0.98     |
+| ResNet50  | 0.82     | 0.84      | 0.82   | 0.83     |
+| VGG16     | 0.87     | 0.87      | 0.87   | 0.87     |
 
-- Accuracy (Doğruluk)
-- Precision (Kesinlik)
-- Recall (Duyarlılık)
-- F1-score
+> 🔎 MobileNet achieved the best performance with the shortest training time (~27 minutes).
 
-## Sonuçlar
+## 📈 Visualizations
 
-Aşağıda her modelin test verisi üzerindeki performans karşılaştırması sunulmaktadır:
+- 📌 Training and Validation Accuracy/Loss plots  
+- 📌 Confusion Matrices for each model  
+- 📌 Comparative Performance Table  
+- 📌 Training Time Comparison
 
-| Model     | Accuracy | Precision | Recall  | F1-Score |
-|-----------|----------|-----------|---------|----------|
-| Xception  | 0.6083   | 0.6442    | 0.6083  | 0.5864   |
-| VGG16     | 0.8711   | 0.8716    | 0.8711  | 0.8700   |
-| MobileNet | 0.9949   | 0.9949    | 0.9949  | 0.9949   |
-| ResNet50  | 0.8248   | 0.8365    | 0.8248  | 0.8252   |
+## 💡 Future Work
 
-En iyi performans MobileNet modelinde elde edilmiştir. Eğitim süresi açısından da en hızlı çalışan model MobileNet olmuştur.
+- Integration into real-time mobile or embedded systems  
+- Testing on broader datasets with more disease classes  
+- Extending to different plant types
 
-## Tahmin Süreleri
+## 👨‍💻 Contributors
 
-Her model için 10 görüntü üzerinden ölçülen tahmin süreleri aşağıda verilmiştir:
+- Ahmet Enes Yensiz – [@Ahmetenesyensiz](https://github.com/Ahmetenesyensiz)  
+- Kemal Kerem Acar
 
-| Model     | Tahmin Süresi (10 Görüntü) |
-|-----------|-----------------------------|
-| Xception  | 3.01 saniye                 |
-| VGG16     | 3.49 saniye                 |
-| MobileNet | 0.69 saniye                 |
-| ResNet50  | 2.26 saniye                 |
+---
 
-## Ekstra Bilgiler
+## 🚀 How to Run
 
-- Eğitimde erken durdurma (EarlyStopping) ve model kontrol (ModelCheckpoint) kullanılmıştır.
-- Confusion matrix ve classification report çıktıları `notebooks/` dizininde incelenebilir.
-- Model dosyaları `models/` klasöründe kayıtlıdır.
+```bash
+# 1. Clone the repo
+git clone https://github.com/Ahmetenesyensiz/Ahmetenesyensiz-Rice-Leaf-Disease-Classification
 
-## Gereksinimler
+# 2. Navigate into project
+cd Ahmetenesyensiz-Rice-Leaf-Disease-Classification
 
-- Python 3.x
-- TensorFlow 2.x
-- scikit-learn
-- matplotlib
-- numpy
-- pandas
+# 3. (Optional) Setup virtual environment
+python -m venv venv
+source venv/bin/activate   # or venv\Scripts\activate on Windows
 
-Tüm bağımlılıkları yüklemek için:
-
+# 4. Install requirements
 pip install -r requirements.txt
+
+# 5. Run Jupyter Notebook
+jupyter notebook rice_leaf_classifier.ipynb
+```
+
+## 📄 License
+
+This project is for academic use under the MIT license.
